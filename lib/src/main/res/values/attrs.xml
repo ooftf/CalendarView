@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CalendarView">
+        <!--是否自适应行数，如果自适应每个月份的行数有可能不同，如果不是自适应，则固定6行-->
+        <attr name="auto_row" format="boolean"/>
+    </declare-styleable>
+</resources>
