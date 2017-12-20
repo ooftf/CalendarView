@@ -1,4 +1,4 @@
-package com.tf.oof.calendarview
+package com.ooftf.calendarview
 
 import org.junit.Test
 

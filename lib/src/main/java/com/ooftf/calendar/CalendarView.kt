@@ -1,4 +1,4 @@
-package com.tf.oof.lib
+package com.ooftf.calendar
 
 import android.annotation.TargetApi
 import android.content.Context
@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
+import com.ooftf.oof.lib.R
 import java.util.*
 
 /**
