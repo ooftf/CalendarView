@@ -26,10 +26,10 @@ dependencies {
         android:paddingTop="20dp" />
 ```
 ```java
-    SignDateDrawModule signDateDrawModule = new SignDateDrawModule(this);
+    MyDrawMoudle signDateDrawModule = new MyDrawMoudle(this);
     calendarView.setDateDrawModule(signDateDrawModule);
     Calendar currentMonth = Calendar.getInstance()
-    calendarView.setDate(currentMonth);
+    calendarView.setDate(currentMonth); 
 ```
 # 方法
 |方法名|描述
