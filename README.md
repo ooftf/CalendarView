@@ -32,5 +32,9 @@ dependencies {
     calendarView.setDate(currentMonth);
 ```
 # 方法
-* setDateDrawModule：设置日期绘画模块  
-* setDate：设置显示日期  
+|方法名|描述
+|---|---|
+|setDateDrawModule|设置日期绘画模块 |
+|setDate|设置显示日期  |
+
+
