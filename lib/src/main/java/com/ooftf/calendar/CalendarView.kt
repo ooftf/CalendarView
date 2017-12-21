@@ -208,7 +208,7 @@ class CalendarView : View {
         setMeasuredDimension((measuredWidth + paddingLeft + paddingRight).toInt(), (measuredHeight + paddingTop + paddingBottom).toInt())
     }
 
-    internal fun setDateDrawModule(dateDrawModule: DateDrawModule) {
+    fun setDateDrawModule(dateDrawModule: DateDrawModule) {
         this.drawModule = dateDrawModule
     }
 
@@ -236,7 +236,7 @@ class CalendarView : View {
         }
 
         fun onDraw(canvas: Canvas) {
-            drawModule.draw(canvas, calendar, x, y, compareCurrentMonth(), unitWidth, unitHeight)
+            drawModule.drawDay(canvas, calendar, x, y, compareCurrentMonth(), unitWidth, unitHeight)
         }
     }
 }

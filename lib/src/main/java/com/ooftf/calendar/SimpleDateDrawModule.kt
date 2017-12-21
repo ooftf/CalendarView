@@ -12,7 +12,7 @@ import java.util.Calendar
  * Created by master on 2017/8/10 0010.
  */
 
-class SimpleDateDrawModule internal constructor() : DateDrawModule {
+open class SimpleDateDrawModule () : DateDrawModule {
     internal var mDatePaint: Paint
     internal var mPaintTodayBG: Paint
 
@@ -21,10 +21,10 @@ class SimpleDateDrawModule internal constructor() : DateDrawModule {
         mDatePaint.isAntiAlias = true
         mPaintTodayBG = Paint()
         mPaintTodayBG.isAntiAlias = true
-        mPaintTodayBG.color = Color.parseColor("#2EA7E0")
+        mPaintTodayBG.color = Color.parseColor("#2196F3")
     }
 
-    override fun draw(canvas: Canvas, current: Calendar, cx: Float, cy: Float, compareMonth: Int, width: Float, height: Float) {
+    override fun drawDay(canvas: Canvas, current: Calendar, cx: Float, cy: Float, compareMonth: Int, width: Float, height: Float) {
         val day = getDay(current).toString()
         if (compareMonth == 0) {
             if (CalendarUtils.compare(current, Calendar.getInstance(), Calendar.DAY_OF_MONTH) == 0) {

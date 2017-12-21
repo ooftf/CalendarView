@@ -15,7 +15,7 @@ interface DateDrawModule {
      * @param cy            cy 坐标
      * @param compareMonth  相较于显示的月份做比较；小于0：上一月；0：本月，大于0：下一月
      */
-    fun draw(canvas: Canvas, current: Calendar, cx: Float, cy: Float, compareMonth: Int, width: Float, height: Float)
+    fun drawDay(canvas: Canvas, current: Calendar, cx: Float, cy: Float, compareMonth: Int, width: Float, height: Float)
 
     fun drawHeader(canvas: Canvas,value: String,index:Int,cx: Float, cy: Float, width: Float, height: Float)
 }
