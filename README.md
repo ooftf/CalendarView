@@ -41,8 +41,8 @@ dependencies {
 |---|---|
 |setDateDrawModule|设置日期绘画模块 |
 |setDate|设置显示日期  |
-# xml属性
-|xml属性|描述|默认
+# XML属性
+|属性名|描述|默认
 |---|---|---|
 |auto_row|是否自适应行数,false:固定7行，true:每个月是不同的 |false|
 
