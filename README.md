@@ -4,6 +4,7 @@
 在未指定DrawModlue使用默认的SimpleDateDrawModule
 # 效果图
 ![demo](https://github.com/ooftf/CalendarView/raw/master/demoImage/whole.jpg)
+![](https://github.com/H07000223/FlycoTabLayout/blob/master/preview_1.gif)
 # Gradle配置
 ```groovy
 allprojects {
