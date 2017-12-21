@@ -3,7 +3,7 @@
 在未指定日期的时候CalendarView 显示当前月份  
 在未指定DrawModlue使用默认的SimpleDateDrawModule
 # 效果图
-![demo](https://github.com/ooftf/CalendarView/raw/fb7272f571f5aa495ce652f51cf3fc18b76addfc/demoImage/Screenshot.png)
+![demo](https://github.com/ooftf/CalendarView/raw/master/demoImage/Screenshot.png)
 # Gradle配置
 ```groovy
 allprojects {

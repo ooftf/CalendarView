@@ -72,7 +72,7 @@ class CalendarView : View {
         initDataPoint()
         mWeekHeader = arrayOf("日", "一", "二", "三", "四", "五", "六")
     }
-    fun obtainAttrs(attrs: AttributeSet) {
+    private fun obtainAttrs(attrs: AttributeSet) {
         val attributes = context.obtainStyledAttributes(attrs, R.styleable.CalendarView)
         autoRow = attributes.getBoolean(R.styleable.CalendarView_auto_row, false)
     }

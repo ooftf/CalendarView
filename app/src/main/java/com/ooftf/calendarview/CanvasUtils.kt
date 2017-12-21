@@ -54,4 +54,12 @@ object CanvasUtils {
         val halfW = paint.measureText(text) / 2
         canvas.drawText(text, x - halfW, y + halfH, paint)
     }
+
+    /**
+     * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
+     */
+    fun dip2px(context: Context, dpValue: Double): Double {
+        val scale = context.resources.displayMetrics.density
+        return dpValue * scale
+    }
 }

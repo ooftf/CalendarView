@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         list.add(BoxBean(2017, 12, 19, false))
         list.add(BoxBean(2017, 12, 21, false))
         list.add(BoxBean(2017, 12, 26, false))
-        Handler().postDelayed({
+        Handler().postDelayed({//模拟网络请求
             module.boxList = list
             calendarView.invalidate()
         }, 2000)

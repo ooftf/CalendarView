@@ -16,7 +16,7 @@ import kotlin.collections.ArrayList
  */
 class MyDrawModule(var context: Context) : DateDrawModule {
     var headerPaint: Paint = Paint()
-    var dataPaint: Paint = Paint()
+    var dayPaint: Paint = Paint()
     var todayBackground: Paint = Paint()
     var boxList: MutableList<BoxBean> = ArrayList()
     var openBitmap: Bitmap = CanvasUtils.getBitmapFromVectorId(context, R.drawable.vector_box_open)
@@ -24,29 +24,30 @@ class MyDrawModule(var context: Context) : DateDrawModule {
 
     init {
         headerPaint.isAntiAlias = true
-        dataPaint.isAntiAlias = true
+        dayPaint.isAntiAlias = true
         todayBackground.isAntiAlias = true
+        headerPaint.textSize = CanvasUtils.dip2px(context,14.toDouble()).toFloat()
+        dayPaint.textSize = CanvasUtils.dip2px(context,12.toDouble()).toFloat()
         todayBackground.color = Color.parseColor("#2196F3")
     }
 
     override fun drawDay(canvas: Canvas, current: Calendar, cx: Float, cy: Float, compareMonth: Int, width: Float, height: Float) {
+        if (drawBox(canvas, current, cx, cy, width, height)) return
         val day = current.get(Calendar.DAY_OF_MONTH).toString()
         if (compareMonth == 0) {
             if (CalendarUtils.compare(current, Calendar.getInstance(), Calendar.DAY_OF_MONTH) == 0) {
                 //今天
-                dataPaint.color = Color.parseColor("#ff0000")
+                dayPaint.color = Color.parseColor("#ff0000")
                 canvas.drawCircle(cx, cy, Math.min(width, height) / 3, todayBackground)
             } else {
                 //非今天
-                dataPaint.color = Color.parseColor("#000000")
+                dayPaint.color = Color.parseColor("#000000")
             }
         } else {
             //非日历所要显示的月份
-            dataPaint.color = Color.parseColor("#999999")
+            dayPaint.color = Color.parseColor("#999999")
         }
-
-        CanvasUtils.drawTextByCenter(day, cx, cy, canvas, dataPaint)
-        drawBox(canvas, current, cx, cy, width, height)
+        CanvasUtils.drawTextByCenter(day, cx, cy, canvas, dayPaint)
     }
 
     override fun drawHeader(canvas: Canvas, value: String, index: Int, cx: Float, cy: Float, width: Float, height: Float) {
@@ -54,7 +55,7 @@ class MyDrawModule(var context: Context) : DateDrawModule {
     }
 
 
-    fun drawBox(canvas: Canvas, calendar: Calendar, cx: Float, cy: Float, width: Float, height: Float) {
+    private fun drawBox(canvas: Canvas, calendar: Calendar, cx: Float, cy: Float, width: Float, height: Float): Boolean {
         boxList.forEach {
             if (calendar.get(Calendar.YEAR) == it.year && calendar.get(Calendar.MONTH) + 1 == it.month && calendar.get(Calendar.DAY_OF_MONTH) == it.day) {
                 var bitmap: Bitmap =
@@ -65,8 +66,9 @@ class MyDrawModule(var context: Context) : DateDrawModule {
                         }
                 var scale = Math.min(width / bitmap.width, height / bitmap.height)//计算合适的缩放比例
                 CanvasUtils.drawBitmapByCenter(canvas, bitmap, todayBackground, cx, cy, bitmap.width * scale, bitmap.height * scale)
-                return
+                return true
             }
         }
+        return false
     }
 }
