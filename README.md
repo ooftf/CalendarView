@@ -4,7 +4,6 @@
 在未指定DrawModlue使用默认的SimpleDateDrawModule
 # 效果图
 ![demo](https://github.com/ooftf/CalendarView/raw/master/demoImage/whole.jpg)
-![](https://github.com/H07000223/FlycoTabLayout/blob/master/preview_1.gif)
 # Gradle配置
 ```groovy
 allprojects {
@@ -16,6 +15,9 @@ dependencies {
     compile 'com.github.ooftf:CalendarView:1.0.2'
 }
 ```
+# 注意事项
+当CalendarView已经被系统绘制完毕后，如果改变DrawModule的数据会引起CalendarView变化需要调用CalendarView.invalidate()
+重新绘制CalendarView
 # 使用方式
 ```xml
 <com.ooftf.calendar.CalendarView
@@ -39,5 +41,9 @@ dependencies {
 |---|---|
 |setDateDrawModule|设置日期绘画模块 |
 |setDate|设置显示日期  |
+# xml属性
+|xml属性|描述|默认
+|---|---|---|
+|auto_row|是否自适应行数,false:固定7行，true:每个月是不同的 |false|
 
 

@@ -210,6 +210,7 @@ class CalendarView : View {
 
     fun setDateDrawModule(dateDrawModule: DateDrawModule) {
         this.drawModule = dateDrawModule
+        invalidate()
     }
 
     /**
