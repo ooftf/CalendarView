@@ -40,7 +40,8 @@ dependencies {
 |方法名|描述
 |---|---|
 |setDateDrawModule|设置日期绘画模块 |
-|setDate|设置显示日期  |
+|setDate|设置显示日期|
+|setOnItemClickListener|添加点击事件|
 # XML属性
 |属性名|描述|默认
 |---|---|---|
