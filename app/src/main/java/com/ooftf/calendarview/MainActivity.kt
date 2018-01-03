@@ -15,12 +15,15 @@ class MainActivity : AppCompatActivity() {
         calendarView2.setDate(2017, 1)
         calendarView.setDateDrawModule(module)
         var list = ArrayList<BoxBean>()
-        list.add(BoxBean(2017, 12, 11, false))
-        list.add(BoxBean(2017, 12, 12, false))
-        list.add(BoxBean(2017, 12, 15, false))
-        list.add(BoxBean(2017, 12, 19, false))
-        list.add(BoxBean(2017, 12, 21, false))
-        list.add(BoxBean(2017, 12, 26, false))
+        var calendar = Calendar.getInstance()
+        var year = calendar.get(Calendar.YEAR)
+        var month = calendar.get(Calendar.MONTH)+1
+        list.add(BoxBean(year, month, 11, false))
+        list.add(BoxBean(year, month, 12, false))
+        list.add(BoxBean(year, month, 15, false))
+        list.add(BoxBean(year, month, 19, false))
+        list.add(BoxBean(year, month, 21, false))
+        list.add(BoxBean(year, month, 26, false))
         Handler().postDelayed({//模拟网络请求
             module.boxList = list
             calendarView.invalidate()

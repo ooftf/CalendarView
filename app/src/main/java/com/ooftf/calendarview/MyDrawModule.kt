@@ -1,10 +1,10 @@
 package com.ooftf.calendarview
 
 import android.content.Context
-import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
+import android.util.Log
 import com.ooftf.calendar.CalendarUtils
 import com.ooftf.calendar.DateDrawModule
 import java.util.*
@@ -19,8 +19,8 @@ class MyDrawModule(var context: Context) : DateDrawModule {
     var dayPaint: Paint = Paint()
     var todayBackground: Paint = Paint()
     var boxList: MutableList<BoxBean> = ArrayList()
-    var openBitmap: Bitmap = CanvasUtils.getBitmapFromVectorId(context, R.drawable.vector_box_open)
-    var closeBitmap: Bitmap = CanvasUtils.getBitmapFromVectorId(context, R.drawable.vector_box_close)
+    var openDrawable = context.resources.getDrawable(R.drawable.vector_box_open)//CanvasUtils.getBitmapFromVectorId(context, R.drawable.vector_box_open)
+    var closeDrawable = context.resources.getDrawable(R.drawable.vector_box_close) //CanvasUtils.getBitmapFromVectorId(context, R.drawable.vector_box_close)
 
     init {
         headerPaint.isAntiAlias = true
@@ -58,14 +58,18 @@ class MyDrawModule(var context: Context) : DateDrawModule {
     private fun drawBox(canvas: Canvas, calendar: Calendar, cx: Float, cy: Float, width: Float, height: Float): Boolean {
         boxList.forEach {
             if (calendar.get(Calendar.YEAR) == it.year && calendar.get(Calendar.MONTH) + 1 == it.month && calendar.get(Calendar.DAY_OF_MONTH) == it.day) {
-                var bitmap: Bitmap =
+                var drawable =
                         if (it.isOpen) {
-                            openBitmap
+                            openDrawable
                         } else {
-                            closeBitmap
+                            closeDrawable
                         }
-                var scale = Math.min(width / bitmap.width, height / bitmap.height)//计算合适的缩放比例
-                CanvasUtils.drawBitmapByCenter(canvas, bitmap, todayBackground, cx, cy, bitmap.width * scale, bitmap.height * scale)
+                var scale = Math.min(width / drawable.intrinsicWidth, height / drawable.intrinsicHeight)//计算合适的缩放比例
+                Log.e("scale",""+scale)
+                var destHeight = drawable.intrinsicWidth * scale
+                var destWith = drawable.intrinsicHeight * scale
+                drawable.setBounds((cx-destWith/2).toInt(), (cy-destHeight/2).toInt(), (cx+destWith/2).toInt(), (cy+destHeight/2).toInt())
+                drawable.draw(canvas)
                 return true
             }
         }
