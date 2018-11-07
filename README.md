@@ -12,7 +12,7 @@ allprojects {
     }
 }
 dependencies {
-    compile 'com.github.ooftf:CalendarView:1.0.4'
+    compile 'com.github.ooftf:CalendarView:1.0.5'
 }
 ```
 # 注意事项
