@@ -2,6 +2,9 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 android {
     compileSdkVersion 26
+    compileOptions {
+        kotlinOptions.freeCompilerArgs += ['-module-name', application_id]
+    }
     defaultConfig {
         minSdkVersion 9
         targetSdkVersion 26

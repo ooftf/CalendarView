@@ -5,7 +5,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 26
     defaultConfig {
-        applicationId "com.ooftf.calendarview"
+        applicationId application_id
         minSdkVersion 15
         targetSdkVersion 26
         versionCode 1
